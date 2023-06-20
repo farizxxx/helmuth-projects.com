@@ -16,7 +16,7 @@ enableRobotsTXT = true
 
 
 [params]
-  headertitle = "Helmuth Porjects"
+  headertitle = "Helmuth Projects"
   description = "Discover the beauty and artistry of embroidery and crafts. From cross-stitch to knitting, quilting to crochet, find inspiration and learn new techniques to bring your handmade creations to life"
   sidebarBehavior = 2
   thumbnailImage = true
