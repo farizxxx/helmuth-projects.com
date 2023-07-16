@@ -8,7 +8,7 @@
           <article class="post hentry">
 
             <div class="post-body entry-content" id="animated-thumbnail">
-              {{ if .Params.thumbnail }}
+              {{ if ne .Section "categories" }}
               <div class="thumb-wrapper">
                 <a class="thumb" href="{{ .Permalink }}">
                   <img data-src="{{ .Params.thumbnail | default .Params.image }}" alt="{{ .Title }}" alt="{{ .Title }}" class="lozad">

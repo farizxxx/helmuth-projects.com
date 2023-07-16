@@ -52,13 +52,11 @@
         <article class="post hentry">
 
             <div class="post-body entry-content" id="animated-thumbnail">
-              {{ if .Params.thumbnail }}
               <div class="thumb-wrapper">
                 <a class="thumb" href="{{ .Permalink }}">
                   <img data-src="{{ .Params.thumbnail | default .Params.image }}" alt="{{ .Title }}" alt="{{ .Title }}" class="lozad">
                 </a>
               </div>
-              {{ end }}
               <h2 class="post-title entry-title" title="{{ .Title }}">
                 <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
               </h2>
