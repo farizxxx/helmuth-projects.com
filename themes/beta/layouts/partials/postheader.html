@@ -1,0 +1,21 @@
+<div class="postmeta-primarypix">
+    <span class="post-author vcard">
+    <i class="fa fa-user"></i>
+    <a href="/#author" title="{{ $.Site.Params.author }}">
+      {{ $.Site.Params.author }}
+    </a>
+    </span>
+    &nbsp;&nbsp; 
+    {{ with .Params.categories }}
+      {{ range . }}
+      <i class="fa fa-folder-open"></i>
+      <a href="{{ . | printf "%s%s" "/categories/" | urlize | lower | relLangURL }}" title="{{ . }}"  rel="tag">
+          {{ . }}
+      </a>
+      &nbsp;&nbsp;
+      {{ end }}
+    {{ end }}
+    <i class="fa fa-calendar-o"></i> 
+    {{ .Date.Format "January 2, 2006" }}
+    &nbsp;&nbsp;
+</div>

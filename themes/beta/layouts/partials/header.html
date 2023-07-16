@@ -1,0 +1,44 @@
+<div id="top-container">
+    <div id="topfix-container">
+      <div class="header-logo">
+        <div class="header section" id="header" name="Logo &amp; Title">
+          <div class="widget Header" id="Header1">
+            <div id="header-inner">
+              <div class="titlewrapper">
+                <div class="title">
+                  <a href="/" title="{{ .Site.Params.Title }}">{{ .Site.Params.Title }}</a>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav id="mudahmenu">
+        <div id="head-mobile"></div>
+        <div class="button" id="menu-button"></div>
+        <ul>
+            {{ range .Site.Menus.main }}
+            <li>
+                <a href="{{ .URL }}" title="{{ .Name }}">
+                    {{ .Name }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+      </nav>
+      <div class="search-icon">
+        <a href="#searchfs">
+          <i class="fa fa-search"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div id="searchfs">
+    <button class="close" type="button">×</button>
+    <form action="/search" id="search-form" method="get">
+      <input name="q" placeholder="Search here..." type="search" value="">
+      <input name="max-results" type="hidden" value="8">
+    </form>
+  </div>
+  <div class="clear"></div>

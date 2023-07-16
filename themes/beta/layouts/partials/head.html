@@ -1,0 +1,93 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ if .IsPage }}/css/single.css{{ else }}/css/home.css{{ end }}">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}rss.xml">
+    <title>
+        {{ if .IsHome }}
+            {{- $.Site.Title -}}
+        {{ else if .IsPage }}
+            {{ .Title }} | {{ .Site.Params.Title }}
+        {{ else }}
+            {{ .Title }} | {{ .Site.Params.Title }}
+        {{ end }}
+    </title>
+    <meta name="description" content="{{if .Description}}{{.Description}}{{else if .IsPage}}{{if gt (len .Summary) 160}}{{.Summary | slice 0 160}}{{else}}{{.Title}}{{end}}{{else if .IsHome}}{{.Site.Params.description}}{{else}}{{.Title}}{{end}}">
+    <link rel="canonical" href="{{if .IsHome}}{{.Site.BaseURL}}{{else}}{{.Permalink}}{{end}}" />
+    {{ if .IsHome }}<meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ .Site.Title }}" />
+    <meta property="og:description" content="{{ .Site.Params.description }}" />
+    <meta property="og:url" content="{{ .Site.BaseURL }}" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}icon.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ .Site.Title }}" />
+    <meta name="twitter:description" content="{{ .Site.Params.description }}" />
+    <meta name="twitter:url" content="{{ .Site.BaseURL }}" />
+    <meta name="twitter:image" content="{{ .Site.BaseURL }}icon.png" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "publisher": {
+                "@type": "Organization",
+                "name": "{{ .Site.Title }}",
+                "url": "{{ .Site.BaseURL }}",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ .Site.BaseURL }}icon.png"
+                }
+            },
+            "url": "{{ .Site.BaseURL }}",
+            "image": {
+                "@type": "ImageObject",
+                "url": "{{ .Site.BaseURL }}icon.png",
+                "width": 192,
+                "height": 192
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ .Site.BaseURL }}"
+            },
+            "description": "{{ .Site.Params.description }}"
+        }
+    </script>{{ else }}<meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ if gt (len .Summary) 160 }}{{ .Summary | slice 0 160 }}{{ else }}{{ .Title }}{{ end }}{{ end }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:image" content="{{ .Params.image }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ .Title }}" />
+    <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ if gt (len .Summary) 160 }}{{ .Summary | slice 0 160 }}{{ else }}{{ .Title }}{{ end }}{{ end }}" />
+    <meta name="twitter:url" content="{{ .Permalink }}" />
+    <meta name="twitter:image" content="{{ .Params.image }}" />
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"Article",
+            "mainEntityOfPage": {
+                "@type":"WebPage",
+                "@id":"{{ .Site.BaseURL }}"
+            },
+            "headline":"{{ .Title }}" ,
+            "description":"{{ if .Description }}{{ .Description }}{{ else }}{{ if gt (len .Summary) 160 }}{{ .Summary | slice 0 160 }}{{ else }}{{ .Title }}{{ end }}{{ end }}",
+            "image":"{{ .Params.image }}",  
+            "url":"{{ .Permalink }}",
+            "datePublished":"{{ .Params.date }}",
+            "dateModified":"{{ .Params.date }}",
+            "author": {
+                "@type":"Person",
+                "name":"{{ .Site.Params.Author }}",
+                "url":"{{ .Site.BaseURL }}#author"
+            }
+        }</script>{{ end }}
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=642d28646134c500128cea07&product=inline-share-buttons&source=platform" async="async"></script>
+        <script type="text/javascript" src="/js/lozad.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&amp;display=swap" media="all">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>

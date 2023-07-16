@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="content-areapix" id="primarypix">
+    <div class="site-mainpix" id="mainpix">
+        <div class="mainblogsec section" id="mainblogsec">
+            <div class="widget Blog" id="Blog1">
+                <article class="post">
+                    <h1 class="post-title">
+                        {{ .Title }}
+                    </h1>
+                    <div class="post-body">
+                        {{ .Content }}
+                        <div class="clear"></div>
+                    </div>
+                </article>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

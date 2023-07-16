@@ -1,0 +1,32 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<div class="blog-pager nubie-clearfix" id="blog-pager">
+    <!-- Don't show on 1st and 2nd page -->
+    {{ if and (ne $pag.PageNumber 1) (ne $pag.PageNumber 2) (ne $pag.PageNumber 3) }}
+        <span class="showpageNum"><a href="{{ $pag.First.URL }}" rel="first">1</a></span>
+        <span class="showpageOf">...</span>
+    {{ end }}
+
+
+    {{ range $pag.Pagers }}
+        {{ if eq . $pag }} <!-- Current Page -->
+        <span class="showpagePoint"><a href="{{ .URL }}">{{ .PageNumber }}</a></span>
+        {{ else if and (ge .PageNumber (sub $pag.PageNumber 2)) (le .PageNumber (add $pag.PageNumber 2)) }}
+        {{ $.Scratch.Set "dot_rendered" false }} <!-- Render prev 2 page and next 2 pages -->
+        <span class="showpageNum"><a href="{{ .URL }}">{{ .PageNumber }}</a></span>
+        {{ else if eq ($.Scratch.Get "dot_rendered") false }} <!-- render skip pages -->
+        {{ $.Scratch.Set "dot_rendered" true }}
+        {{ end }}
+    {{ end }}
+
+
+
+    <!-- Don't show on last and 2nd last page -->
+    {{ if and (lt $pag.PageNumber (sub $pag.TotalPages 2)) }}  
+    <span class="showpageOf">...</span>
+    <span class="showpageNum"><a href="{{ $pag.Last.URL }}" rel="last">{{ $pag.TotalPages }}</a></span>
+    {{ end }}
+</div>
+{{ end }}
+
+

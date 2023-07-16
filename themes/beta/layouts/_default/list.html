@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="content-areapix" id="primarypix">
+    <div class="site-mainpix" id="mainpix">
+      <div class="mainblogsec section" id="mainblogsec">
+        <div class="widget Blog" id="Blog1">
+          {{ $paginator := .Paginate .Pages }}
+          {{ range $paginator.Pages }}
+          <article class="post hentry">
+
+            <div class="post-body entry-content" id="animated-thumbnail">
+              {{ if .Params.thumbnail }}
+              <div class="thumb-wrapper">
+                <a class="thumb" href="{{ .Permalink }}">
+                  <img data-src="{{ .Params.thumbnail | default .Params.image }}" alt="{{ .Title }}" alt="{{ .Title }}" class="lozad">
+                </a>
+              </div>
+              {{ end }}
+              <h2 class="post-title entry-title" title="{{ .Title }}">
+                <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+              </h2>
+              {{ if ne .Section "categories" }}
+                {{- partial "postheader.html" . -}}
+              {{ end }}
+                <div class="snippets">
+                {{ if gt (len .Summary) 160	}}
+                    {{slicestr .Summary 0 160}}
+                {{ end }}
+                </div>
+              <div class="clear"></div>
+            </div>
+          </article>
+          <div class="clear"></div>
+        {{ end }}        
+        {{ partial "pagination.html" . }}
+
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

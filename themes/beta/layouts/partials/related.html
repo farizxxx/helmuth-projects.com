@@ -1,0 +1,17 @@
+<div class="related-line">
+    <span class="related-info-th">More From Author</span>
+</div>
+<div id="related-posts">
+<div class="related">
+    {{ range first 6 (shuffle (where (where .Site.RegularPages "Type" "!=" "pages" ) "Title" "!=" .Title )) }}
+    <li>
+        <div class="related-thumb">
+            <a class="related-img lozad" href="{{ .RelPermalink }}" data-background-image="{{ .Params.thumbnail | default .Params.image }}" style="background-repeat: no-repeat;background-position: center center;background-size: cover"></a>
+        </div>
+        <h3 class="related-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+    </li>
+    {{end}}
+    </div>
+</div>

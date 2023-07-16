@@ -1,0 +1,15 @@
+{{ if .Site.Taxonomies.categories }}
+<div class="widget Label" id="Label2">
+    <h2>Categories</h2>
+    <div class="widget-content list-label-widget-content">
+        <ul>
+            {{ range $key, $value := .Site.Taxonomies.categories }}
+            <li>
+                <a dir="ltr" href="{{ $.Site.BaseURL }}categories/{{ $key | urlize  }}">{{ $key | humanize }}</a>
+                <span dir="ltr">{{ len $value }}</span>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+{{ end }}

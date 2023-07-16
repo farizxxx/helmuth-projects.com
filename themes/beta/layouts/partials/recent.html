@@ -1,0 +1,24 @@
+<div class="widget PopularPosts" id="PopularPosts1">
+    <h2>Recent Posts</h2>
+    <div class="widget-content popular-posts">
+        <ul>
+            {{ range first .Site.Params.recentposts (shuffle (where (where .Site.RegularPages "Type" "!=" "pages" ) "Title" "!=" .Title )) }}
+            <li>
+                <div class="item-thumbnail-only">
+                    <div class="item-thumbnail">
+                        <a href="{{ .RelPermalink }}">
+                            <img class="lozad" alt="{{ .Title }}" height="72"
+                                data-src="{{ .Params.thumbnail | default .Params.image }}"
+                                title="{{ .Title }}" width="72">
+                        </a>
+                    </div>
+                    <div class="item-title">
+                        <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </li>
+            {{- end }}
+        </ul>
+    </div>
+</div>

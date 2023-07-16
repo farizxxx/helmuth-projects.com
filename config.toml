@@ -1,207 +1,71 @@
-baseurl = "https://www.helmuth-projects.com/"
-title = "Helmuth Projects - Explore the World of Needle Arts"
-languageCode = "en-us"
-defaultContentLanguage = "en-us"
-paginate = "10"
-theme = "hugo-tranquilpeak-theme"
-canonifyurls = true
-disqusShortname = ""
-googleAnalytics = ""
+baseURL = 'https://helmuth-projects.com/'
+languageCode = 'en-US'
+defaultContentLanguage = 'en-us'
+title = 'Helmuth Projects - Explore the World of Needle Arts' # Title on Meta Tags
+paginate = 10
+theme = 'beta'
 enableRobotsTXT = true
-
-[taxonomies]
-  tag = false
-  category = "categories"
-  post = false
-
-
-[params]
-  headertitle = "Helmuth Projects"
-  description = "Discover the beauty and artistry of embroidery and crafts. From cross-stitch to knitting, quilting to crochet, find inspiration and learn new techniques to bring your handmade creations to life"
-  sidebarBehavior = 2
-  thumbnailImage = true
-  thumbnailImagePosition = "left"
-  autoThumbnailImage = true
-  coverImage = "images/cover.jpg"
-  favicon = "/favicon.ico"
-  imageGallery = true
-  hierarchicalCategories = true
-  syntaxHighlighter = 'highlight.js'
-  dateFormat = "2 January 2006"
-
-  [[params.sharingOptions]]
-  name = "Facebook"
-  icon = "fab fa-facebook-square"
-  url = "https://www.facebook.com/sharer/sharer.php?u=%s"
-
-  [[params.sharingOptions]]
-    name = "Twitter"
-    icon = "fab fa-twitter"
-    url = "https://twitter.com/intent/tweet?text=%s"
+disableKinds = ['section', 'posts']
+disableHugoGeneratorInject = true
 
 [permalinks]
-  post = '/:title/'
+  posts = '/:title/'
+  pages = '/:title/'
+
+
+[taxonomies]
+  category = 'categories'
 
 [outputs]
-    page = ["HTML"]
-    home = ["HTML","RSS"]
-    section = ["HTML"]
-    taxonomyTerm = ["HTML"]
-    taxonomy = ["HTML"]
+  page = ['HTML']
+  home = ['HTML','RSS']
+  section = ['HTML']
+  taxonomyTerm = ['HTML']
+  taxonomy = ['HTML']
 
 [outputFormats]
   [outputFormats.RSS]
-    mediatype = "application/rss"
-    baseName = "rss"    
-    
-[author]
-  name = "Faris"
-  bio = "As a web designer, I strive to create beautiful, functional, and user-friendly websites. Let's collaborate to bring your vision to life!"
-  job = "Web Designer"
-  location = "UK"
-  gravatarEmail = "admin@helmuth-projects.com"
-  picture = ""
+    mediatype = 'application/rss'
+    baseName = 'rss'    
 
-[[menu.main]]
-  weight = 1
-  identifier = "home"
-  name = "Home"
-  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-home\" aria-hidden=\"true\"></i>"
-  url = "/"
-[[menu.main]]
-  weight = 2
-  identifier = "categories"
-  name = "Categories"
-  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-bookmark\" aria-hidden=\"true\"></i>"
-  url = "/categories"
+[params]
+  title = 'Helmuth Projects' # Title on Header
+  # tagline = ''
+  description = 'Discover the beauty and artistry of embroidery and crafts. From cross-stitch to knitting, quilting to crochet, find inspiration and learn new techniques to bring your handmade creations to life'
+  author = 'Embroidery Expert'
+  recentposts = 10
 
-[[menu.main]]
-  weight = 4
-  identifier = "privacypolicy"
-  name = "Pricacy Policy"
-  pre = "<i class=\"sidebar-button-icon fas fa-shield-alt\" aria-hidden=\"true\"></i>"
-  url = "/privacy-policy/"
+[menu]
 
-[[menu.main]]
-  weight = 5
-  identifier = "dmca"
-  name = "DMCA"
-  pre = "<i class=\"sidebar-button-icon fas fa-copyright\" aria-hidden=\"true\"></i>"
-  url = "/dmca/"
-[[menu.main]]
-  weight = 6
-  identifier = "about"
-  name = "About"
-  pre = "<i class=\"sidebar-button-icon far fa-id-card\" aria-hidden=\"true\"></i>"
-  url = "/about/"  
+  [[menu.main]]
+    identifier = 'categories'
+    name = 'Categories'
+    url = '/categories/'
+    weight = 1
 
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 2
 
+  [[menu.main]]
+    identifier = 'privacy-policy'
+    name = 'Privacy Policy'
+    url = '/privacy-policy/'
+    weight = 3
 
+  [[menu.main]]
+    identifier = 'dmca'
+    name = 'DMCA'
+    url = '/dmca/'
+    weight = 4
 
-# [Author]
-#   name = "Ana Sylvia "
-#   bio = ""
-#   avatar = ""
+# [menu]
 
-# [Params]
-#   description = "Discover the beauty and artistry of embroidery and crafts. From cross-stitch to knitting, quilting to crochet, find inspiration and learn new techniques to bring your handmade creations to life"
-#   copyright = ""
-#   opengraph = false
-#   schema = false
-#   twitter_cards = false
-#   readmore = false
-#   authorbox = false
-#   toc = false
-#   pager = true
-#   post_meta = ["author", "date", "categories", "translations"]
-#   mainSections = ["post", "blog", "news"]
-#   dateformat = "2006-01-02"
-#   mathjax = false
-#   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
-#   mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
-#   googleFontsLink = "https://fonts.googleapis.com/css2?family=Acme&family=Montserrat:wght@400;700&family=Quicksand:wght@400;700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap"
-#   customCSS = ["css/custom.css"]
-#   customJS = ["js/custom.js"]
-
-#   # DEPRECATED PARAMS
-#   subtitle = ""
-#   highlightColor = ""
-
-# [Params.style.vars]
-#   highlightColor = "#cb2027"
-#   fontFamilyPrimary = "'Roboto', sans-serif"
-#   fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
-#   fontFamilyAcme = "'Acme', sans-serif"
-#   fontFamilyMontserrat = "'Montserrat', sans-serif"
-#   fontFamilyQuicksand = "'Quicksand', sans-serif"
-
-# [Params.logo]
-#   image = ""
-#   title = "HELMUTH PROJECTS"
-#   subtitle = "Explore the World of Needle Arts"
-
-# [Params.thumbnail]
-#   visibility = ["list", "post"]
-
-# [Params.sidebar]
-#   home = "right"
-#   list = "right"
-#   single = true 
-#   widgets = ["recent", "categories", "social", "languages"]
-
-# [Params.widgets]
-#   recent_num = 5
-#   categories_counter = true
-#   tags_counter = false 
-
-# [Params.widgets.social]
-#   facebook = "helmuthprojects.crafts"
-#   twitter = ""
-#   instagram = ""
-#   linkedin = ""
-#   telegram = ""
-#   github = ""
-#   gitlab = ""
-#   bitbucket = ""
-#   email = ""
-
-# [[Params.widgets.social.custom]]
-#   title = "Pinterest"
-#   url = "https://pinterest.com/helmuth_projects/"
-#   icon = "svg/pinterest.svg"
-
-
-# [[Params.widgets.social.custom]]
-#   title = "Youtube"
-#   url = "https://www.youtube.com/@HelmuthProjects"
-#   icon = "svg/youtube.svg"
-
-# [[Params.widgets.social.custom]]
-#   title = "RSS"
-#   url = "/rss.xml"
-#   icon = "svg/rss.svg"
-
-# [[Params.widgets.social.custom]]
-#   title = "Sitemap"
-#   url = "/sitemap.xml"
-#   icon = "svg/link.svg"
-
-
-# # [Params.widgets.search]
-# #   url = "https://google.com/search"
-# #   [Params.widgets.search.input]
-# #     name = "sitesearch"
-# #     pre = ""
-
-# [related]
-#   includeNewer = false
-#   threshold = 80
-#   toLower = false
-
-#  [[related.indices]]
-#    name = "tags"
-#    weight = 100
-
-#  [[related.indices]]
-#    name = "date"
-#    weight = 10
+#   [[menu.socialsidebar]]
+#     identifier = 'facebook'
+#     name = 'facebook'
+#     url = '#'
+#     icon = '<i class='fa fa-facebook'></i>'
+#     weight = '1'
