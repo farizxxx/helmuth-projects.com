@@ -24,6 +24,9 @@
 </div>
 
 <script src="/js/include.js"></script>
+{{ if eq .Type "posts" }}
+<script src="/ads/ads.js"></script>
+{{ end }}
 
 <script>
 const observer = lozad();
